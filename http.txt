@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Update system
+sudo yum update -y
+
+# Install Apache web server
+sudo yum install httpd -y
+
+# Start Apache service
+sudo systemctl start httpd
+
+# Enable Apache on boot
+sudo systemctl enable httpd
+
+# Go to web directory
+cd /var/www/html
+
+# Create index.html file
+echo "<html>
+<head>
+<title>My First AWS Website</title>
+</head>
+<body>
+<h1>Hello Shubham 🚀</h1>
+<p>Deployed using Shell Script</p>
+</body>
+</html>" | sudo tee index.html
+
+# Set permissions
+sudo chmod 644 /var/www/html/index.html
+
+echo "Deployment Completed 🚀"
